@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Employee details</h2>
+    <p><strong>Id : </strong><%= employee.id %></p>
+    <p><strong>Username : </strong><%= employee.name %></p>
+    <p><strong>Email : </strong><%= employee.email %></p>
+    <p><strong>Password : </strong><%= employee.password %></p>
+    <p><strong>Salary : </strong><%= employee.salary %></p>
+    <a href="/q5/take_leave<%= token ? `?token=${token}` : '' %>">Apply for leave</a><br>
+    <a href="/q5/get_all<%= token ? `?token=${token}` : '' %>">Show leave list</a><br>
+    <a href="/q5/logout">Logout</a>
+</body>
+</html>

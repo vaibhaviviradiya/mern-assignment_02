@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Submitted Data</h2>
+    <p>
+        <strong>Username : </strong> <%= data.username %>
+    </p>
+    <p>
+        <strong>Email : </strong> <%= data.email %>
+    </p>
+    <p>
+        <strong>Password : </strong> <%= data.password %>
+    </p>
+    <p>
+        <strong>Gender : </strong> <%= data.gender %>
+    </p>
+    <p>
+        <strong>Hobbies</strong>
+        <ul>
+            <% data.hobbies.forEach(hobby => { %>
+                <li><%= hobby %></li>
+            <% }) %>
+        </ul>
+    </p>
+    <p><strong>Profile Pic : </strong>
+        <% if(data.profile_pic) { %>
+            <img src="/<%= data.profile_pic %>" alt="No image found" height="150" width="150">
+            <p>Click <strong><a href="/q1/download/<%= data.profile_pic %>">here</a></strong> to download <%= data.profile_pic %></p>
+        <% } else { %>
+            <p>No image found..!!</p>
+        <% } %>
+    </p>
+    <p><strong>Other Pics : </strong>
+        <% if(data.other_pic.length > 0) { %>
+            <% data.other_pic.forEach(pic => { %>
+                <img src="/<%= pic %>" alt="No pics found..!!" height="150" width="150">
+                <p>Click <strong><a href="/q1/download/<%= pic %>">here</a></strong> to download <%= pic %></p>
+            <% }) %>
+        <% } else { %>
+            <p>No images found..!!</p>
+        <% } %>
+    </p>
+    <br>
+    <strong>Download pictures</strong>
+</body>
+</html>

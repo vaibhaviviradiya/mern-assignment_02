@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error { color : red; font-weight: bolder; }
+    </style>
+</head>
+<body>
+    <form action="/q1/test" method="post" enctype="multipart/form-data">
+        <div>
+            <input type="text" name="username" placeholder="Enter your username" value="<%= oldData && oldData.username ? oldData.username : '' %>">
+            <% if(errors.username) { %>
+                <div class="error"><%= errors.username.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="email" name="email" placeholder="Enter your email" value="<%= oldData && oldData.email ? oldData.email : '' %>">
+            <% if(errors.email) { %>
+                <div class="error"><%= errors.email.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Enter your password" value="<%= oldData && oldData.password ? oldData.password : '' %>">
+            <% if(errors.password) { %>
+                <div class="error"><%= errors.password.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="password" name="confirmPassword" placeholder="Confirm your password" value="<%= oldData && oldData.confirmPassword ? oldData.confirmPassword : '' %>">
+            <% if(errors.confirmPassword) { %>
+                <div class="error"><%= errors.confirmPassword.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <% if(errors.gender) { %>
+                <div class="error"><%= errors.gender.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="checkbox" name="hobbies" value="Coding"> Coding
+            <input type="checkbox" name="hobbies" value="Gym"> Gym
+            <input type="checkbox" name="hobbies" value="Music"> Music
+            <input type="checkbox" name="hobbies" value="Singing"> Singing
+            <input type="checkbox" name="hobbies" value="Travelling"> Travelling
+            <% if(errors.hobbies) { %>
+                <div class="error"><%= errors.hobbies.msg %></div>
+            <% } %>
+        </div>
+        <div>
+            <input type="file" name="profilePic">
+        </div>
+        <div>
+            <input type="file" name="otherPics" multiple>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

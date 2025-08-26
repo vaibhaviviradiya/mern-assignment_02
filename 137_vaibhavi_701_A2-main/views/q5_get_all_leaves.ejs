@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Leaves</title>
+</head>
+<body>
+    <h2>All Leaves</h2>
+    <% if (typeof leaves !== 'undefined' && Array.isArray(leaves) && leaves.length > 0) { %>
+    <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% leaves.forEach(function(leave, index) { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td>
+                        <% if (leave.date) { %>
+                            <%= new Date(leave.date).toLocaleDateString('en-GB') %>
+                        <% } else { %>
+                            -
+                        <% } %>
+                    </td>
+                    <td><%= leave.reason || '-' %></td>
+                    <td><%= leave.grant || '-' %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+        <p>No leaves found.</p>
+    <% } %>
+    <a href="/q5/render_data<%= token ? `?token=${token}` : '' %>">Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: #f6f7fb;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-weight: 700;
+            font-size: 20px;
+            padding: 16px 20px;
+            color: #111827;
+        }
+        thead th {
+            background: #111827;
+            color: #fff;
+            text-align: left;
+            letter-spacing: .02em;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+        tbody tr:nth-child(even) { background: #f9fafb; }
+        tbody tr:hover { background: #eef2ff; }
+        a.action {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        a.update { background: #10b981; color: #fff; }
+        a.delete { background: #ef4444; color: #fff; }
+        @media (max-width: 640px) {
+            table { display: block; overflow-x: auto; white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <table>
+        <caption>Employee records</caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Salary</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if (Array.isArray(data) && data.length > 0) { %>
+                <% data.forEach(emp => { %>
+                    <tr>
+                        <td><%= emp.id %></td>
+                        <td><%= emp.name %></td>
+                        <td><%= emp.email %></td>
+                        <td><%= emp.password %></td>
+                        <td><%= emp.salary %></td>
+                        <td><a class="action update" href="/q4/update/<%= emp.id %>">Update</a></td>
+                        <td><a class="action delete" href="/q4/delete/<%= emp.id %>">Delete</a></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="7">No employees found</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    </div>
+    <p>
+        <strong><a href="/q4/add">Add Employee</a></strong>
+        <strong><a href="/q4/logout">Logout</a></strong>
+    </p>
+</body>
+</html>

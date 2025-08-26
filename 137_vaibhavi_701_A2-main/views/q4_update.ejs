@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Update Employee</h2>
+    <form action="/q4/update" method="post">
+        <div>
+            <input type="number" name="id" value="<%= data.id %>" readonly>
+        </div>
+        <div>
+            <input type="text" name="name" value="<%= data.name %>" placeholder="Enter your name">
+        </div>
+        <div>
+            <input type="email" name="email" value="<%= data.email %>" placeholder="Enter your email">
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
